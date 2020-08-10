@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/APIeCulto
+/APIeCulto/bin/Debug/netcoreapp3.1
+/APIeCulto/obj
