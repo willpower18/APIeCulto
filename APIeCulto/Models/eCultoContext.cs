@@ -37,6 +37,8 @@ namespace APIeCulto.Models
 
                 entity.Property(e => e.IdIgreja).HasColumnType("int(11)");
 
+                entity.Property(e => e.Lotacao).HasColumnType("int(11)");
+
                 entity.Property(e => e.Nome)
                     .IsRequired()
                     .HasColumnType("varchar(100)")
@@ -64,6 +66,8 @@ namespace APIeCulto.Models
                 entity.Property(e => e.IdIgreja).HasColumnType("int(11)");
 
                 entity.Property(e => e.Ativo).HasColumnType("int(11)");
+
+                entity.Property(e => e.Capacidade).HasColumnType("int(11)");
 
                 entity.Property(e => e.Bairro)
                     .IsRequired()
@@ -123,6 +127,10 @@ namespace APIeCulto.Models
                     .HasName("FK_Participacao_Culto");
 
                 entity.Property(e => e.IdParticipacao).HasColumnType("int(11)");
+
+                entity.Property(e => e.QtdCriancas).HasColumnType("int(11)"); 
+
+                entity.Property(e => e.QtdAdultos).HasColumnType("int(11)"); 
 
                 entity.Property(e => e.ChaveApp)
                     .IsRequired()

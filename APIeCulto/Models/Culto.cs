@@ -15,6 +15,7 @@ namespace APIeCulto.Models
         public string Nome { get; set; }
         public DateTime DataHora { get; set; }
         public string Preletor { get; set; }
+        public int Lotacao { get; set; }
 
         public virtual Igreja IdIgrejaNavigation { get; set; }
         public virtual ICollection<Participacao> Participacao { get; set; }

@@ -20,6 +20,7 @@ namespace APIeCulto.Models
         public string Uf { get; set; }
         public string Responsavel { get; set; }
         public string Tradicao { get; set; }
+        public int Capacidade { get; set; }
         public int Ativo { get; set; }
 
         public virtual ICollection<Culto> Culto { get; set; }
