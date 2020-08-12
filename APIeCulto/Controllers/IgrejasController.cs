@@ -67,6 +67,7 @@ namespace APIeCulto.Controllers
                     foreach(Culto c in cultos)
                     {
                         c.IdIgrejaNavigation = null;
+                        c.Participacao = null;
                     }
                 }
 
