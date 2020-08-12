@@ -21,6 +21,36 @@ namespace APIeCulto.Controllers
             _context = context;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Culto>> Index(int id, string key)
+        {
+            if (key != ApiKey.Key)
+            {
+                return StatusCode(403);
+            }
+
+            try
+            {
+                if(id == 0)
+                {
+                    return NotFound();
+                }
+
+                Culto culto = await _context.Culto.FindAsync(id);
+
+                if(culto == null)
+                {
+                    return NotFound();
+                }
+
+                return culto;
+            }
+            catch
+            {
+                return StatusCode(500);
+            }
+        }
+
         [HttpPost]
         public async Task<IActionResult> Index(NovaParticipacao participacao)
         {
