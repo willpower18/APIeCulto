@@ -62,6 +62,13 @@ namespace APIeCulto.Controllers
                 DateTime hoje = Util.BrasilDate();
 
                 List<Culto> cultos = await _context.Culto.Where(c => c.IdIgreja == igreja.IdIgreja & c.DataHora >= hoje).OrderBy(c => c.DataHora).ToListAsync();
+                if(cultos.Count > 0)
+                {
+                    foreach(Culto c in cultos)
+                    {
+                        c.IdIgrejaNavigation = null;
+                    }
+                }
 
                 IgrejaCultos iCulto = new IgrejaCultos
                 {
