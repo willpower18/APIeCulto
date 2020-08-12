@@ -132,6 +132,8 @@ namespace APIeCulto.Models
 
                 entity.Property(e => e.QtdAdultos).HasColumnType("int(11)"); 
 
+                entity.Property(e => e.Confirmado).HasColumnType("int(11)");
+
                 entity.Property(e => e.ChaveApp)
                     .IsRequired()
                     .HasColumnType("varchar(100)")

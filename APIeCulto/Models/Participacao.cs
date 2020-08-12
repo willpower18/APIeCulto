@@ -12,6 +12,7 @@ namespace APIeCulto.Models
         public string ChaveApp { get; set; }
         public int QtdCriancas { get; set; }
         public int QtdAdultos { get; set; }
+        public int? Confirmado { get; set; }
 
         public virtual Culto IdCultoNavigation { get; set; }
     }
