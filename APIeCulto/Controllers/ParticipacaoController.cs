@@ -70,15 +70,11 @@ namespace APIeCulto.Controllers
                 {
                     Igreja igreja = await _context.Igreja.Where(i => i.IdIgreja == culto.IdIgreja).FirstOrDefaultAsync();
                     List<Participacao> participacoes = await _context.Participacao.Where(p => p.IdCulto == culto.IdCulto).ToListAsync();
-                    int adultos = participacoes.Sum(p => p.QtdAdultos);
-                    int criancas = participacoes.Sum(p => p.QtdCriancas);
-                    int quantidade = adultos + criancas;
-                    if(culto.Lotacao >= igreja.Capacidade)
+                    int quantidade = culto.Lotacao;
+                    if (culto.Lotacao >= igreja.Capacidade)
                     {
                         return StatusCode(406); //Quando ultrapassa a capacidade do culto
                     }
-
-                    quantidade += culto.Lotacao;
 
                     if(quantidade > igreja.Capacidade)
                     {
@@ -105,6 +101,8 @@ namespace APIeCulto.Controllers
                     _context.Add(novaParticipacao);
                     await _context.SaveChangesAsync();
                     //Incrementa a Lotacao do Culto
+                    quantidade += novaParticipacao.QtdAdultos;
+                    quantidade += novaParticipacao.QtdCriancas;
                     culto.Lotacao = quantidade;
                     _context.Update(culto);
                     await _context.SaveChangesAsync();
