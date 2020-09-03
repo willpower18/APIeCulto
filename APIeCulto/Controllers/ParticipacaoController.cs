@@ -81,11 +81,11 @@ namespace APIeCulto.Controllers
                         return StatusCode(406); //Quando ultrapassa a capacidade do culto
                     }
 
-                    var appkey = participacoes.Where(p => p.ChaveApp == participacao.participacao.ChaveApp).Select(p => p.ChaveApp);
+                    /*var appkey = participacoes.Where(p => p.ChaveApp == participacao.participacao.ChaveApp).Select(p => p.ChaveApp);
                     if(appkey.Count() > 0)
                     {
                         return Unauthorized(); //401 Dispositivo já registrado no app
-                    }
+                    }*/
 
                     Participacao novaParticipacao = new Participacao
                     {
